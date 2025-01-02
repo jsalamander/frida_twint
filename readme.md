@@ -18,6 +18,11 @@ mitmdump -p 9090 -s payment_interceptor.py
 
 # on first start install the root certificate
 pip install frida-tools
+# frida server
+adb shell
+su root
+/data/local/tmp/frsf -l 0.0.0.0
 
+# start app
 frida -H 192.168.1.3 --codeshare dzonerzy/fridantiroot --codeshare akabe1/frida-multiple-unpinning  -U -f ch.postfinance.twint.android
 ```
